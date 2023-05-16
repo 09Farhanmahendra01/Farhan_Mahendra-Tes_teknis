@@ -48,11 +48,11 @@ const filter_cuaca = (hasil_filter_hari) => {
       hasil_cuaca.push(value.main.temp);
     });
   }
-  mengelompokann();
+  mengelompokan_hasil();
 };
 // Menyusun tanggal
 let nama_hari = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-let bulan = new Date().getMonth() + 1;
+let bulan = new Date().getMonth();
 let tahun = new Date().getFullYear();
 const daftar_bulan = [
   "Jan",
@@ -69,11 +69,11 @@ const daftar_bulan = [
   "Dec",
 ];
 const tanggal_pencari_hari = [
-  `${tahun}-` + `0${bulan}-` + "17",
-  `${tahun}-` + `0${bulan}-` + "18",
-  `${tahun}-` + `0${bulan}-` + "19",
-  `${tahun}-` + `0${bulan}-` + "20",
-  `${tahun}-` + `0${bulan}-` + "21",
+  `${tahun}-` + `0${bulan + 1}-` + "17",
+  `${tahun}-` + `0${bulan + 1}-` + "18",
+  `${tahun}-` + `0${bulan + 1}-` + "19",
+  `${tahun}-` + `0${bulan + 1}-` + "20",
+  `${tahun}-` + `0${bulan + 1}-` + "21",
 ];
 const tanggal_pencari_bulan = [
   "17" + ` ${daftar_bulan[bulan]} ` + `${tahun}`,
@@ -83,7 +83,7 @@ const tanggal_pencari_bulan = [
   "21" + ` ${daftar_bulan[bulan]} ` + `${tahun}`,
 ];
 
-const mengelompokann = () => {
+const mengelompokan_hasil = () => {
   tanggal_pencari_hari.map((value, index) => {
     mengelompokan_hasil_yang_akan_ditampilkan.push({
       hari: nama_hari[new Date(value).getDay()],
